@@ -9,6 +9,11 @@ public class Water extends Pokemon {
         this.anfibio = anfibio;
         this.swimSpeed = swimSpeed;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", ¿Anfibio?: " + anfibio + ", Rapidez al nadar: " + swimSpeed;
+    }
     
     
 }

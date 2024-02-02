@@ -11,4 +11,9 @@ public class Fire extends Pokemon {
         super(nombre, pokedex, naturaleza);
         this.potencia = potencia;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Potencia de sus llamas: " + potencia;
+    }
 }

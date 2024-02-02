@@ -15,6 +15,7 @@ public class Pokemon {
         this.pokedexCode = pokedex;
         this.naturaleza = naturaleza;
         atrapado = false;
+        pokebola = null;
     }
 
     public String getNombre() {
@@ -55,6 +56,11 @@ public class Pokemon {
 
     public void setPokebola(String pokebola) {
         this.pokebola = pokebola;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + ", Código en la Pokedex: " + pokedexCode + ", Naturaleza: " + naturaleza + ", ¿Atrapado?: " + atrapado + ", Pokebola: " + pokebola;
     }
     
     

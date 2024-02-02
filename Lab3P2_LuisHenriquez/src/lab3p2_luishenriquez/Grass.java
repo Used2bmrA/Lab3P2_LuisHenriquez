@@ -9,4 +9,11 @@ public class Grass extends Pokemon{
         this.habitat = habitat;
         this.dominioVegetal = dominioVegetal;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +  ", Habitat: " + habitat + ", Dominio sobre las plantas: " + dominioVegetal;
+    }
+    
+    
 }
