@@ -1,11 +1,13 @@
 package lab3p2_luishenriquez;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lab3P2_LuisHenriquez {
 
     static Scanner sc = new Scanner(System.in);
+    static SecureRandom sr = new SecureRandom();
     static ArrayList<Pokemon> pokedex = new ArrayList();
     static ArrayList<Pokeball> ballsack = new ArrayList();
     
@@ -27,9 +29,9 @@ public class Lab3P2_LuisHenriquez {
                     + "2. Crear Pokebola\n"
                     + "3. Listar Pokemón\n"
                     + "4. Eliminar Pokemón (los Pokemón no se eliminan, solo se desmayan)\n"
-                    + "5. Modificar Pokemón\n"
-                    + "6. Capturar Pokemón\n"
-                    + "6. Salir");
+                    + "5. Capturar Pokemón\n"
+                    + "6. Modificar Pokemón\n"
+                    + "7. Salir");
             op = sc.nextInt();
             sc.nextLine();
             
@@ -77,6 +79,48 @@ public class Lab3P2_LuisHenriquez {
                     
                     break;
                 case 5: //Capturar
+                    int pokeballChoice;
+                    Pokemon encounter;
+                    Pokeball ball;
+                    int accion;
+                    
+                    encounter = PokemonRandom();
+                    
+                    do {
+                        System.out.println("¿Desea intentar capturarlo?\n"
+                                + "1. Sí\n"
+                                + "2. Huir (fijo es un Zubat)");
+                        accion = sc.nextInt();
+                        sc.nextLine();
+                        
+                        switch (accion) {
+                            case 1:
+                                System.out.println("¿Qué pokebola desea usar?");
+                                ListarPokebola();
+                                pokeballChoice = sc.nextInt() - 1;
+                                Pokeball aUtilizar = ballsack.get(pokeballChoice);
+                                
+                                if (aUtilizar.getEficiencia() == 3) {
+                                    System.out.println("¡Has caputrado a " + encounter.getNombre() + "!\n");
+                                    encounter.setPokebola(aUtilizar);
+                                    ballsack.remove(aUtilizar);
+                                    
+                                }else if(aUtilizar.getEficiencia() == 2){
+                                    
+                                }else{
+                                    
+                                }
+                                
+                                break;
+                            case 2:
+                                System.out.println("You run back to your mommy...\n");
+                                break;
+                            default:
+                                System.out.println("Opción invalida, intente otra vez.\n");
+                        }
+                    } while (accion != 1 && accion != 2);
+                    
+                    
                     
                     
                     break;
@@ -280,6 +324,23 @@ public class Lab3P2_LuisHenriquez {
         
         System.out.println(resultado);
         return choppingBlock;
+    }
+
+    private static void ListarPokebola() {
+        int conteo = 1;
+        for (int i = 0; i < ballsack.size(); i++) {
+            System.out.println(conteo + ". " + ballsack.get(i).toString());
+            conteo++;
+        }
+    }
+
+    private static Pokemon PokemonRandom() {
+        
+        Pokemon encounter = pokedex.get(sr.nextInt(0,pokedex.size()));
+        
+        System.out.println("El pokemón " + encounter.getNombre()  + " ha aparecido!");
+        
+        return encounter;
     }
     
 }

@@ -1,9 +1,9 @@
 package lab3p2_luishenriquez;
 
 public class Pokeball {
-    String color;
-    int numSerie;
-    int eficiencia;
+    protected String color;
+    protected int numSerie;
+    protected int eficiencia;
 
     public Pokeball(String color, int numSerie, int eficiencia) {
         this.color = color;

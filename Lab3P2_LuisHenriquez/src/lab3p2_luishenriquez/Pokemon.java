@@ -1,11 +1,11 @@
 package lab3p2_luishenriquez;
 
 public class Pokemon {
-    String nombre;
-    int pokedexCode;
-    String naturaleza;
-    boolean atrapado;
-    String pokebola;
+    protected String nombre;
+    protected int pokedexCode;
+    protected String naturaleza;
+    protected boolean atrapado;
+    protected Pokeball pokebola;
 
     public Pokemon() {
     }
@@ -50,11 +50,11 @@ public class Pokemon {
         this.atrapado = atrapado;
     }
 
-    public String getPokebola() {
+    public Pokeball getPokebola() {
         return pokebola;
     }
 
-    public void setPokebola(String pokebola) {
+    public void setPokebola(Pokeball pokebola) {
         this.pokebola = pokebola;
     }
 
