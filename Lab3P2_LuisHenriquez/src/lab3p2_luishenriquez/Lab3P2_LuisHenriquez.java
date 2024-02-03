@@ -212,11 +212,95 @@ public class Lab3P2_LuisHenriquez {
                     sc.nextLine();
                     aModificar = available.get(modification);
                     
+                    int finalChoice = 0;
                     
-                    
-                    
-                    
-                    
+                    do {
+                        System.out.println("¿Qué desea modificar?");
+                        switch (selection) {
+                            case 1:
+                                System.out.println("1. Nombre\n"
+                                        + "2. Entrada en la Pokedex\n"
+                                        + "3. Potencia de llamas");
+                                finalChoice = sc.nextInt();
+                                sc.nextLine();
+                                switch (finalChoice) {
+                                    case 1:
+                                        System.out.println("¿Qué nombre desea ponerle?");
+                                        String nombre = sc.nextLine();
+                                        aModificar.setNombre(nombre);
+                                        break;
+                                    case 2:
+                                        System.out.println("¿Cuál es la nueva entrada en la pokedex?");
+                                        int codigo = sc.nextInt();
+                                        sc.nextLine();
+                                        aModificar.setPokedex(codigo);
+                                        break;
+                                    case 3:
+                                        System.out.println("¿Cuál es la nueva potencia?");
+                                        int potencia = sc.nextInt();
+                                        sc.nextLine();
+                                        ((Fire) aModificar).setPotencia(potencia);
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                System.out.println("1. Nombre\n"
+                                        + "2. Entrada en la Pokedex\n"
+                                        + "3. Puede vivir fuera del agua");
+                                finalChoice = sc.nextInt();
+                                sc.nextLine();
+                                switch (finalChoice) {
+                                    case 1:
+                                        System.out.println("¿Qué nombre desea ponerle?");
+                                        String nombre = sc.nextLine();
+                                        aModificar.setNombre(nombre);
+                                        break;
+                                    case 2:
+                                        System.out.println("¿Cuál es la nueva entrada en la pokedex?");
+                                        int codigo = sc.nextInt();
+                                        sc.nextLine();
+                                        aModificar.setPokedex(codigo);
+                                        break;
+                                    case 3:
+                                        System.out.println("Se ha cambiado su anfibeidad");
+                                        if (((Water)aModificar).isAnfibio()) {
+                                            ((Water)aModificar).setAnfibio(false);
+                                        }else{
+                                            ((Water)aModificar).setAnfibio(true);
+                                        }
+                                        break;
+                                }
+                                break;
+                            case 3:
+                                System.out.println("1. Nombre\n"
+                                        + "2. Entrada en la Pokedex\n"
+                                        + "3. Habitat");
+                                finalChoice = sc.nextInt();
+                                sc.nextLine();
+                                switch (finalChoice) {
+                                    case 1:
+                                        System.out.println("¿Qué nombre desea ponerle?");
+                                        String nombre = sc.nextLine();
+                                        aModificar.setNombre(nombre);
+                                        break;
+                                    case 2:
+                                        System.out.println("¿Cuál es la nueva entrada en la pokedex?");
+                                        int codigo = sc.nextInt();
+                                        sc.nextLine();
+                                        aModificar.setPokedex(codigo);
+                                        break;
+                                    case 3:
+                                        System.out.println("¿Cuál es el nuevo habitat?");
+                                        String habitat = sc.nextLine();
+                                        ((Grass) aModificar).setHabitat(habitat);
+                                        break;
+                                }
+                                break;
+                            default:
+                                System.out.println("Opción invalida, intente otra vez.");
+                        }
+                    } while (finalChoice != 1 && finalChoice != 2 && finalChoice != 3);
+                   
                     break;
                 case 7: //Salir
                     System.out.println("Adiós");

@@ -10,6 +10,14 @@ public class Water extends Pokemon {
         this.swimSpeed = swimSpeed;
     }
 
+    public void setAnfibio(boolean anfibio) {
+        this.anfibio = anfibio;
+    }
+
+    public boolean isAnfibio() {
+        return anfibio;
+    }
+
     @Override
     public String toString() {
         return super.toString() + ", ¿Anfibio?: " + anfibio + ", Rapidez al nadar: " + swimSpeed;

@@ -14,6 +14,10 @@ public class Grass extends Pokemon{
     public String toString() {
         return super.toString() +  ", Habitat: " + habitat + ", Dominio sobre las plantas: " + dominioVegetal;
     }
+
+    public void setHabitat(String habitat) {
+        this.habitat = habitat;
+    }
     
     
 }
