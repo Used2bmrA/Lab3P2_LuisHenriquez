@@ -157,6 +157,7 @@ public class Lab3P2_LuisHenriquez {
                 case 6: //Modificar
                     int selection;
                     ArrayList<Pokemon> porTipo = new ArrayList();
+                    Pokemon aModificar;
                     
                     do { //Sort by type
                         System.out.println("¿Qué tipo de pokemón desea modificar?\n"
@@ -209,7 +210,7 @@ public class Lab3P2_LuisHenriquez {
                     }
                     int modification = sc.nextInt() - 1;
                     sc.nextLine();
-                    
+                    aModificar = available.get(modification);
                     
                     
                     
