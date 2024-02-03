@@ -11,8 +11,12 @@ public class Pokeball {
         this.eficiencia = eficiencia;
     }
 
+    public int getEficiencia() {
+        return eficiencia;
+    }
+
     @Override
     public String toString() {
-        return "Color: " + color + ", Número de serie: " + numSerie + ", Eficiencia=" + eficiencia;
+        return "Color: " + color + ", Número de serie: " + numSerie + ", Eficiencia: " + eficiencia;
     }
 }

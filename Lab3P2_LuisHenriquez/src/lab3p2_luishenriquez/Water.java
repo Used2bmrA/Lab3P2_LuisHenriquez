@@ -1,8 +1,8 @@
 package lab3p2_luishenriquez;
 
 public class Water extends Pokemon {
-    boolean anfibio;
-    int swimSpeed;
+    protected boolean anfibio;
+    protected int swimSpeed;
 
     public Water(boolean anfibio, int swimSpeed, String nombre, int pokedex, String naturaleza) {
         super(nombre, pokedex, naturaleza);

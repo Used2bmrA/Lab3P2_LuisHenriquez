@@ -83,45 +83,52 @@ public class Lab3P2_LuisHenriquez {
                     Pokemon encounter;
                     Pokeball ball;
                     int accion;
+                    int requiredToCatch;
                     
                     encounter = PokemonRandom();
                     
-                    do {
-                        System.out.println("¿Desea intentar capturarlo?\n"
-                                + "1. Sí\n"
-                                + "2. Huir (fijo es un Zubat)");
-                        accion = sc.nextInt();
-                        sc.nextLine();
-                        
-                        switch (accion) {
-                            case 1:
-                                System.out.println("¿Qué pokebola desea usar?");
-                                ListarPokebola();
-                                pokeballChoice = sc.nextInt() - 1;
-                                Pokeball aUtilizar = ballsack.get(pokeballChoice);
-                                
-                                if (aUtilizar.getEficiencia() == 3) {
-                                    System.out.println("¡Has caputrado a " + encounter.getNombre() + "!\n");
-                                    encounter.setPokebola(aUtilizar);
-                                    ballsack.remove(aUtilizar);
-                                    
-                                }else if(aUtilizar.getEficiencia() == 2){
-                                    
-                                }else{
-                                    
-                                }
-                                
-                                break;
-                            case 2:
-                                System.out.println("You run back to your mommy...\n");
-                                break;
-                            default:
-                                System.out.println("Opción invalida, intente otra vez.\n");
-                        }
-                    } while (accion != 1 && accion != 2);
-                    
-                    
-                    
+                    if (ballsack.isEmpty()) {
+                        System.out.println("You do not have the balls to catch that pokemon.");
+                    } else {
+                        do {
+                            System.out.println("¿Desea intentar capturarlo?\n"
+                                    + "1. Sí\n"
+                                    + "2. Huir (fijo es un Zubat)");
+                            accion = sc.nextInt();
+                            sc.nextLine();
+
+                            switch (accion) {
+                                case 1:
+                                    System.out.println("¿Qué pokebola desea usar?");
+                                    ListarPokebola();
+                                    pokeballChoice = sc.nextInt() - 1;
+                                    Pokeball aUtilizar = ballsack.get(pokeballChoice);
+
+                                    if (aUtilizar.getEficiencia() == 3) { //Eficiencia 3 de 3
+                                        System.out.println("¡Has caputrado a " + encounter.getNombre() + "!\n");
+                                        encounter.setPokebola(aUtilizar);
+                                        ballsack.remove(aUtilizar);
+                                    } else if (aUtilizar.getEficiencia() != 3) { //Eficiencia 1 y 2 de 3
+                                        requiredToCatch = sr.nextInt(1, 4);
+                                        if (aUtilizar.getEficiencia() >= requiredToCatch) {
+                                            System.out.println("¡Has caputrado a " + encounter.getNombre() + "!\n");
+                                            encounter.setPokebola(aUtilizar);
+                                        } else {
+                                            System.out.println(encounter.getNombre() 
+                                                    + " ha escapado. You could not, in fact, catch them all.");
+                                        }
+                                        ballsack.remove(aUtilizar);
+                                    }
+
+                                    break;
+                                case 2:
+                                    System.out.println("You run back to your mommy...\n");
+                                    break;
+                                default:
+                                    System.out.println("Opción invalida, intente otra vez.\n");
+                            }
+                        } while (accion != 1 && accion != 2);
+                    }
                     
                     break;
                 case 6: //Modificar
@@ -338,7 +345,7 @@ public class Lab3P2_LuisHenriquez {
         
         Pokemon encounter = pokedex.get(sr.nextInt(0,pokedex.size()));
         
-        System.out.println("El pokemón " + encounter.getNombre()  + " ha aparecido!");
+        System.out.println("¡El pokemón " + encounter.getNombre()  + " ha aparecido!");
         
         return encounter;
     }
