@@ -155,6 +155,65 @@ public class Lab3P2_LuisHenriquez {
                     
                     break;
                 case 6: //Modificar
+                    int selection;
+                    ArrayList<Pokemon> porTipo = new ArrayList();
+                    
+                    do { //Sort by type
+                        System.out.println("¿Qué tipo de pokemón desea modificar?\n"
+                                + "1. Fuego\n"
+                                + "2. Agua\n"
+                                + "3. Hierba");
+                        selection = sc.nextInt();
+                        sc.nextLine();
+                        
+                        switch (selection) {
+                            case 1:
+                                for (int i = 0; i < pokedex.size(); i++) {
+                                    if (pokedex.get(i) instanceof Fire) {
+                                        porTipo.add(pokedex.get(i));
+                                    }
+                                }
+                                break;
+                            case 2:
+                                for (int i = 0; i < pokedex.size(); i++) {
+                                    if (pokedex.get(i) instanceof Water) {
+                                        porTipo.add(pokedex.get(i));
+                                    }
+                                }
+                                break;
+                            case 3:
+                                for (int i = 0; i < pokedex.size(); i++) {
+                                    if (pokedex.get(i) instanceof Grass) {
+                                        porTipo.add(pokedex.get(i));
+                                    }
+                                }
+                                break;
+                            default:
+                                System.out.println("Opción invalida, intente otra vez.");
+                        }
+                    } while (selection != 1 && selection != 2 && selection != 3);
+                    
+                    
+                    ArrayList <Pokemon> available = new ArrayList();
+                    
+                    for (int i = 0; i < porTipo.size(); i++) { //Select caught pokemon
+                        if (porTipo.get(i).isAtrapado()) {
+                            available.add(porTipo.get(i));
+                        }
+                    }
+                    
+                    //print caught pokemon
+                    System.out.println("¿Qué pokemon desea modificar?");
+                    for (int i = 0; i < available.size(); i++) {
+                        System.out.println((i+1)+". " + available.get(i).toString());
+                    }
+                    int modification = sc.nextInt() - 1;
+                    sc.nextLine();
+                    
+                    
+                    
+                    
+                    
                     
                     
                     break;
@@ -284,9 +343,17 @@ public class Lab3P2_LuisHenriquez {
         for (int i = 0; i < pokedex.size(); i++) {
             if (pokedex.get(i) instanceof Fire) {
                 resultado += conteo + ". " + pokedex.get(i).toString()+"\n";
-            } else if (pokedex.get(i) instanceof Water) {
+            }
+            conteo++;
+        }
+        for (int i = 0; i < pokedex.size(); i++) {
+            if (pokedex.get(i) instanceof Water) {
                 resultado += conteo + ". " + pokedex.get(i).toString()+"\n";
-            } else {
+            }
+            conteo++;
+        }
+        for (int i = 0; i < pokedex.size(); i++) {
+            if (pokedex.get(i) instanceof Grass) {
                 resultado += conteo + ". " + pokedex.get(i).toString()+"\n";
             }
             conteo++;
